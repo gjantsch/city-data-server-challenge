@@ -17,11 +17,13 @@ class FormSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('forms')->insert([
-            'name' => fake()->company(),
-            'amount' => round(rand(1, 1000) * 10, 2),
-            'status' => fake()->shuffleArray(['approved', 'denied', 'waiting-decision'])[0],
-        ]);
+        for($i = 0; $i < 10; $i++) {
+            DB::table('forms')->insert([
+                'name' => fake()->company(),
+                'amount' => round(rand(1, 1000) * 10, 2),
+                'status' => fake()->shuffleArray(['approved', 'denied', 'waiting-decision'])[0],
+            ]);
+        }
 
     }
 }
